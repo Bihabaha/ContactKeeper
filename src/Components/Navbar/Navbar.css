@@ -1,0 +1,32 @@
+
+/* Navbar*/
+.navbar{
+    background: #e17373;
+}
+/*Links*/
+.nav-link {
+ color: rgb(241, 248, 244) !important;
+ font-size: 20px!important;
+ text-align: center;
+
+}
+.nav-link :hover {
+ color: rgb(9, 36, 111)!important ;
+}
+.authentication{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+/*Athentication*/
+.authentication .login{
+    padding: 5px;
+}
+.authentication a {
+  
+    text-decoration: none;
+    color: rgb(50, 50, 50);
+    
+}
+
