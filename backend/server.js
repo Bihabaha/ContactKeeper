@@ -1,5 +1,7 @@
 //dotnenv
 require("dotenv").config();
+//mongoose
+const mongoose =require("mongoose")
 //Express
 const express = require("express");
 //contact routes
@@ -14,7 +16,15 @@ app.use((req, res, next) => {
 });
 //routes
 app.use("/api/contacts",contactRoute);
+
+//connect to db 
+mongoose.connect(process.env.MONGO_URI).then(()=>{
 //listen to requests
 app.listen(process.env.PORT, () => {
-  console.log("listenning on port", process.env.PORT);
-});
+    console.log("Connected to the server && listenning on port", process.env.PORT);
+  });
+
+}).catch((error)=>{
+    console.log(error)
+})
+
