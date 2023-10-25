@@ -6,8 +6,8 @@ const Contact = require("../models/contactSchema")
 
 //Get all contacts
 const getContacts = async(req,res)=>{
- const contact = await Contact.find({}).sort({createdAt:-1})
- res.status(200).json(contact)
+ const contacts = await Contact.find({}).sort({createdAt:-1})
+ res.status(200).json(contacts)
 }
 //Post all contacts
 const postContacts = async(req,res)=>{
@@ -33,7 +33,7 @@ if(!contact){
 }
 res.status(200).json(contact)
 }
-//Get all contacts
+//Delete all contacts
 const deleteContact = async(req,res)=>{
     const {id}=req.params
     if(!mongoose.Types.ObjectId.isValid(id)){
@@ -45,7 +45,7 @@ const deleteContact = async(req,res)=>{
     }
     res.status(200).json(contact)
 }
-//Get all contacts
+// Update all contacts
 const updateContacts = async(req,res)=>{
     const {id}=req.params
     if(!mongoose.Types.ObjectId.isValid(id)){

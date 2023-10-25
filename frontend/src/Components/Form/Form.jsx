@@ -4,9 +4,9 @@ const Form = () => {
   return (
     <div>
       <form>
-        <h1 classNameName="text-center text-warning">Add contact</h1>
+        <h1 className="text-center text-warning">Add contact</h1>
         <div className="mb-3">
-          <label for="exampleInputEmail1" className="form-label">
+          <label className="form-label">
             <span> Address</span>
 
             <input
@@ -18,7 +18,7 @@ const Form = () => {
           </label>
         </div>
         <div className="mb-3">
-          <label for="exampleInputPassword1" className="form-label">
+          <label className="form-label">
             <span>Password</span>
             <input
               type="password"
@@ -28,7 +28,7 @@ const Form = () => {
           </label>
         </div>
         <div className="mb-3">
-          <label for="exampleInputPassword1" className="form-label">
+          <label  className="form-label">
             <span>Phone Number</span>
             <input
               type="password"
