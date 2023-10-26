@@ -1,9 +1,62 @@
-import React from 'react'
+import React from "react";
+import { RiDeleteBinLine } from "react-icons/ri";
+import { BiEdit } from "react-icons/bi";
+import { AiOutlineUser } from "react-icons/ai";
+import { BsFillPhoneFill } from "react-icons/bs";
+import { MdEmail } from "react-icons/md";
+import "./Contacts.css";
+import { useContactContext } from "../../hooks/useContactContext";
+const Contacts = ({ contact }) => {
+  const { dispatch } = useContactContext();
 
-const Contacts = () => {
+  const handleClick = async () => {
+    const response = await fetch("/api/contacts/" + contact._id, {
+      method: "DELETE",
+    });
+    const json = await response.json();
+
+    if (response.ok) {
+      dispatch({ type: "REMOVE_CONTACT", payload: json });
+    }
+  };
   return (
-    <div>Contacts</div>
-  )
-}
+    <div>
+     
+        <div className="card w-75  m-auto mt-4 mb-2 rounded " >
+          <div className="card-body d-flex ">
+            
+              <p className="mb-3 text-light   ">
+                <span className="text-light fs-5">
+                  <AiOutlineUser />
+                </span>{" "}
+                {contact.fullName}
+              </p>
+              <p className="mb-3 text-light ">
+                <span className="text-light fs-5">
+                  <BsFillPhoneFill />
+                </span>{" "}
+                {contact.phoneNumber}
+              </p>
+              <p className="mb-3 text-light ">
+                <span className="text-light fs-5">
+                  <MdEmail />
+                </span>{" "}
+                {contact.address}
+              </p>
+              <div className="icon-update-remove ">
+                <span className="text-success fs-3 ">
+                  <BiEdit />
+                </span>
+                <span className="text-danger fs-3 " onClick={handleClick}>
+                 delete  <RiDeleteBinLine />
+                </span>
+              </div>
+            
+          </div>
+        </div>
 
-export default Contacts
+    </div>
+  );
+};
+
+export default Contacts;
