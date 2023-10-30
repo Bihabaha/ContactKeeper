@@ -10,7 +10,7 @@ const Contacts = ({ contact }) => {
   const { dispatch } = useContactContext();
 
   const handleClick = async () => {
-    const response = await fetch("/api/contacts/" + contact._id, {
+    const response = await fetch("https://assakinaback.vercel.app/api/contacts/" + contact._id, {
       method: "DELETE",
     });
     const json = await response.json();
@@ -21,40 +21,36 @@ const Contacts = ({ contact }) => {
   };
   return (
     <div>
-     
-        <div className="card w-75  m-auto mt-4 mb-2 rounded " >
-          <div className="card-body d-flex ">
-            
-              <p className="mb-3 text-light   ">
-                <span className="text-light fs-5">
-                  <AiOutlineUser />
-                </span>{" "}
-                {contact.fullName}
-              </p>
-              <p className="mb-3 text-light ">
-                <span className="text-light fs-5">
-                  <BsFillPhoneFill />
-                </span>{" "}
-                {contact.phoneNumber}
-              </p>
-              <p className="mb-3 text-light ">
-                <span className="text-light fs-5">
-                  <MdEmail />
-                </span>{" "}
-                {contact.address}
-              </p>
-              <div className="icon-update-remove ">
-                <span className="text-success fs-3 ">
-                  <BiEdit />
-                </span>
-                <span className="text-danger fs-3 " onClick={handleClick}>
-                 delete  <RiDeleteBinLine />
-                </span>
-              </div>
-            
+      <div className="card w-75  m-auto mt-4 mb-2 rounded ">
+       { <div className="card-body d-flex ">
+          <p className="mb-3 text-light   ">
+            <span className="text-light fs-5">
+              <AiOutlineUser />
+            </span>{" "}
+            {contact.fullName}
+          </p>
+          <p className="mb-3 text-light ">
+            <span className="text-light fs-5">
+              <BsFillPhoneFill />
+            </span>{" "}
+            {contact.phoneNumber}
+          </p>
+          <p className="mb-3 text-light ">
+            <span className="text-light fs-5">
+              <MdEmail />
+            </span>{" "}
+            {contact.address}
+          </p>
+          <div className="icon-update-remove ">
+            <span className="text-success fs-3 ">
+              <BiEdit />
+            </span>
+            <span className="text-danger fs-3 " onClick={handleClick}>
+              <RiDeleteBinLine />
+            </span>
           </div>
-        </div>
-
+        </div>}
+      </div>
     </div>
   );
 };
