@@ -8,7 +8,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchContact = async () => {
-      const response = await fetch("https://assakinaback.vercel.app/api/contacts");
+      const response = await fetch("/api/contacts");
       const json = await response.json();
       if (response.ok) {
        dispatch({type:"SET_CONTACTS",payload:json})

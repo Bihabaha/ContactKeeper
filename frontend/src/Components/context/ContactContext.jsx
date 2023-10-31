@@ -12,7 +12,8 @@ export const  contactReducer =(state,action)=>{
                 }
                 case "REMOVE_CONTACT":
                     return {
-                        workouts: state.contacts.filter((c)=>c._id!==action.payload._id)
+
+                        contacts: state.contacts.filter((c)=>c._id!==action.payload._id)
                     }
                 default:
                     return state
