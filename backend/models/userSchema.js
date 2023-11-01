@@ -1,5 +1,6 @@
 const mongoose = require("mongoose")
-
+//validator
+const validator = require("validator")
 // hashing function to hide password
 const bcrypt= require("bcrypt")
 const Schema = mongoose.Schema
@@ -19,6 +20,20 @@ password:{
 //static signup method 
 
 userSchema.statics.signup=async function(email,password){
+ //validation
+
+ if(!email||!password){
+    throw Error("All fields must be filled")
+ }
+ if(!validator.isEmail(email)){
+    throw Error("Invalid email")
+ }
+ if(!validator.isStrongPassword(password)){
+    throw Error("Password Not strong enough")
+ }
+
+
+
     const exists = await this.findOne({email})
     if(exists){
         throw Error("Email already in use")
