@@ -6,6 +6,8 @@ const mongoose =require("mongoose")
 const express = require("express");
 //contact routes
 const contactRoute = require("./routes/contactRoute")
+//user routes
+const userRoute = require("./routes/user")
 //express app
 const app = express();
 //Global middleware
@@ -16,6 +18,7 @@ app.use((req, res, next) => {
 });
 //routes
 app.use("/api/contacts",contactRoute);
+app.use("/api/user",userRoute);
 
 //connect to db 
 mongoose.connect(process.env.MONGO_URI).then(()=>{
