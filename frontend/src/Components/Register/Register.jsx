@@ -1,21 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Register = () => {
+
+  const [email,setEmail]= useState("")
+  const [password,setPassword]=useState("")
+  const handleSubmit=async(e)=>{
+    email.preventDefault()
+
+    
+
+  }
   return (
     <div className='container w-50 bg-dark mt-5 text-center text-light '>
-      <form className='p-5'>
-        <div className="mb-3">
-          <label className="form-label">
-            <span>Full Name</span>
-
-            <input
-              type="email"
-              className="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-            />
-          </label>
-        </div>
+      <form className='p-5' onSubmit={handleSubmit}>
+      
         <div className="mb-3">
           <label  className="form-label">
             <span>Email</span>
@@ -23,7 +21,8 @@ const Register = () => {
             <input
               type="email"
               className="form-control"
-              id="exampleInputEmail1"
+             onChange={e=>setEmail(e.target.value)}
+             value={email}
               aria-describedby="emailHelp"
             />
           </label>
@@ -34,20 +33,13 @@ const Register = () => {
             <input
               type="password"
               className="form-control"
-              id="exampleInputPassword1"
+              onChange={e=>setPassword(e.target.value)}
+              value={password}
+              
             />
           </label>
         </div>
-        <div className="mb-3">
-          <label className="form-label">
-            <span> Retype Password</span>
-            <input
-              type="password"
-              className="form-control"
-              id="exampleInputPassword1"
-            />
-          </label>
-        </div>
+     
       
 
         <button type="submit" className="btn btn-primary">

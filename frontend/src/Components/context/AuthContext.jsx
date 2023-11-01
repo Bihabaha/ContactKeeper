@@ -1,4 +1,4 @@
-import{createContext,userReducer} from "react"
+import{createContext,useReducer} from "react"
 
 
 
@@ -17,7 +17,7 @@ export const authReducer=(state,action)=>{
 
 export const AuthContextProvider=({children})=>{
 
-  const[state,dispatch]=userReducer(authReducer,{
+  const[state,dispatch]=useReducer(authReducer,{
     user:null
   })
 

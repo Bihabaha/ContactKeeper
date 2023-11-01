@@ -10,7 +10,7 @@ const Contacts = ({ contact }) => {
   const { dispatch } = useContactContext();
 
   const handleClick = async () => {
-    const response = await fetch("https://vercel.com/bihabaha/contact-keeper/api/contacts/" + contact._id, {
+    const response = await fetch("/api/contacts/" + contact._id, {
       method: "DELETE",
     });
     const json = await response.json();

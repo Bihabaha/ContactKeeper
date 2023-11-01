@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.min.js"
 import { ContactContextProvider } from './Components/context/ContactContext.jsx'
 
-import { AuthContextProvider } from './Components/context/AuthContext.js'
+import { AuthContextProvider } from './Components/context/AuthContext.jsx'
 ContactContextProvider
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
