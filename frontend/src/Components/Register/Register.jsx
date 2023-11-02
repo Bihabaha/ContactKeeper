@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-
+import { useSignup } from "../../hooks/useSignup";
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+const {signup ,error,isLoading}=useSignup()
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    console.log(email, password);
+    await signup(email, password);
   };
 
   return (
@@ -39,9 +40,10 @@ const Register = () => {
           </label>
         </div>
 
-        <button type="submit" className="btn btn-primary">
+        <button disabled={isLoading} type="submit" className="btn btn-primary">
           Sign Up
         </button>
+        {error&&<div className="text-danger bg-light mt-2 ">{error}</div>}
       </form>
     </div>
   );
