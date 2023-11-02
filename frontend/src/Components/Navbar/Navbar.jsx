@@ -4,7 +4,15 @@ import "./Navbar.css"
 import {SiGnuprivacyguard} from "react-icons/si"
 import {FiLogIn} from "react-icons/fi"
 import { Link } from 'react-router-dom'
+import { useLogout } from '../../hooks/useLogout'
+useLogout
+useLogout
 const Navbar = () => {
+  const {logout}= useLogout()
+  const handleClick=()=>{
+logout()
+  }
+
   return (
     <div>
 
@@ -28,6 +36,7 @@ const Navbar = () => {
        
       </ul>
       <Search/>
+<div className='me-auto btn btn-outline-danger' onClick={handleClick}>Logout</div>
       <div className='authentication'>
        <div className="/signup"> <span className='text-light'><SiGnuprivacyguard/></span> <Link to='/signup' >SignUp</Link></div>
        <div className='/login'><span className='text-light'><FiLogIn/></span> <Link to='/login' >Login</Link></div>

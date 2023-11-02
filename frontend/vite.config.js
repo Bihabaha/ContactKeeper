@@ -20,7 +20,8 @@ export default defineConfig({
     host: 'localhost',
     proxy: {
       "/api/contacts": "http://localhost:4000/", // the address backend for contacts
-      "/api/user/signup": "http://localhost:4000/", // the address backend for contacts
+      "/api/user/signup": "http://localhost:4000/", // the address backend for signup
+      "/api/user/login": "http://localhost:4000/", // the address backend for login
 
     },
   
