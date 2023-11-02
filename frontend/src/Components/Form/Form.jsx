@@ -13,7 +13,7 @@ const Form = () => {
     e.preventDefault();
     //if we dont have a user this shows error
     if (!user) {
-      setError("You must log in");
+      setError("You must be logged in");
       return;
     }
 
@@ -24,7 +24,7 @@ const Form = () => {
       headers: {
         "Content-Type": "application/json",
         //autorization
-        Authorization: `Bearer ${user.token}`,
+        'Authorization': `Bearer ${user.token}`
       },
     });
     const json = await response.json();

@@ -21,7 +21,7 @@ export const  contactReducer =(state,action)=>{
 }
 export  const ContactContextProvider=({children})=>{
     const[state,dispatch]=useReducer(contactReducer,{
-        contacts:null
+        contacts:[]
     })
 
     return (

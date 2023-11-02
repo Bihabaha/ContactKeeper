@@ -12,7 +12,7 @@ const Home = () => {
     const fetchContact = async () => {
       const response = await fetch("/api/contacts",{
         // sen authorization to gie access to end point
-        header:{
+        headers:{
           'Authorization': `Bearer ${user.token}`
         }
       });

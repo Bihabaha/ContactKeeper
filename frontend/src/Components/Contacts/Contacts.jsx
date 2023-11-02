@@ -18,7 +18,7 @@ const {user}=useAuthContext()
       method: "DELETE",
 
       //authorization 
-      header:{
+      headers:{
         'Authorization': `Bearer ${user.token}`
       }
     });
