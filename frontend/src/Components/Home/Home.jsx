@@ -1,8 +1,9 @@
 import React, { useEffect} from "react";
 import { useContactContext } from "../../hooks/useContactContext";
-import {useAuthContext} from "../../hooks/useAuthContext"
+
 import Form from "../Form/Form";
 import Contacts from "../Contacts/Contacts";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 const Home = () => {
   const {contacts,dispatch}= useContactContext()

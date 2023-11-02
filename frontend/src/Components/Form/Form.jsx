@@ -14,7 +14,7 @@ const Form = () => {
     //if we dont have a user this shows error
     if (!user) {
       setError("You must be logged in");
-      return;
+      return
     }
 
     const contact = { fullName, address, phoneNumber };
