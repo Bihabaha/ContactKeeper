@@ -6,12 +6,21 @@ import { BsFillPhoneFill } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 import "./Contacts.css";
 import { useContactContext } from "../../hooks/useContactContext";
+import { useAuthContext } from "../../hooks/useAuthContext";
 const Contacts = ({ contact }) => {
   const { dispatch } = useContactContext();
-
+const {user}=useAuthContext()
   const handleClick = async () => {
+    if(!user){
+      return
+    }
     const response = await fetch("/api/contacts/" + contact._id, {
       method: "DELETE",
+
+      //authorization 
+      header:{
+        'Authorization': `Bearer ${user.token}`
+      }
     });
     const json = await response.json();
 
@@ -24,7 +33,7 @@ const Contacts = ({ contact }) => {
       <div className="card w-75  m-auto mt-4 mb-2 rounded ">
        { <div className="card-body d-flex ">
           <p className="mb-3 text-light   ">
-            <span className="text-light fs-5">
+            <span className="text-light  fs-5">
               <AiOutlineUser />
             </span>{" "}
             {contact.fullName}

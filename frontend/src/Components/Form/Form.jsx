@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useContactContext } from "../../hooks/useContactContext";
+import { useAuthContext } from "../../hooks/useAuthContext";
 const Form = () => {
-  const{dispatch}=useContactContext()
+  const { dispatch } = useContactContext();
+  const { user } = useAuthContext();
   const [fullName, setFullName] = useState("");
   const [address, setAddress] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -9,29 +11,36 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const contact = { fullName,address,phoneNumber };
+    //if we dont have a user this shows error
+    if (!user) {
+      setError("You must log in");
+      return;
+    }
+
+    const contact = { fullName, address, phoneNumber };
     const response = await fetch("/api/contacts", {
       method: "POST",
       body: JSON.stringify(contact),
       headers: {
         "Content-Type": "application/json",
+        //autorization
+        Authorization: `Bearer ${user.token}`,
       },
     });
     const json = await response.json();
     if (!response.ok) {
       setError(json.error);
     }
-    if(response.ok) {
+    if (response.ok) {
       setAddress("");
       setFullName("");
       setPhoneNumber("");
       setError(null);
 
-     console.log("Contatct added")
-     dispatch({type:"CREATE_CONTACT",payload:json})
-     console.log(contact)
+      console.log("Contatct added");
+      dispatch({ type: "CREATE_CONTACT", payload: json });
+      console.log(contact);
     }
-   
   };
   return (
     <div>
@@ -55,7 +64,7 @@ const Form = () => {
         </div>
         <div className="mb-3">
           <label className="form-label text-light ">
-            <span>full Name</span>
+            <span>Full Name</span>
             <input
               type="text"
               className="form-control"
@@ -79,7 +88,11 @@ const Form = () => {
         <button type="submit" className="btn btn-primary w-50">
           Submit
         </button>
-        {error && <div className="text-danger border-danger  bg-light p-2 border mt-2">{error}</div>}
+        {error && (
+          <div className="text-danger border-danger  bg-light p-2 border mt-2">
+            {error}
+          </div>
+        )}
       </form>
     </div>
   );

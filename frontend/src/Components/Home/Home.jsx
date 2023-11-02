@@ -1,21 +1,32 @@
 import React, { useEffect} from "react";
 import { useContactContext } from "../../hooks/useContactContext";
+import {useAuthContext} from "../../hooks/useAuthContext"
 import Form from "../Form/Form";
 import Contacts from "../Contacts/Contacts";
 
 const Home = () => {
   const {contacts,dispatch}= useContactContext()
+  const{user}=useAuthContext()
 
   useEffect(() => {
     const fetchContact = async () => {
-      const response = await fetch("/api/contacts");
+      const response = await fetch("/api/contacts",{
+        // sen authorization to gie access to end point
+        header:{
+          'Authorization': `Bearer ${user.token}`
+        }
+      });
       const json = await response.json();
       if (response.ok) {
        dispatch({type:"SET_CONTACTS",payload:json})
       }
+      //if user logs in then he can fetch contacts
+      if(user){
+
+        fetchContact();
+      }
     };
-    fetchContact();
-  }, []);
+  }, [dispatch,user]);
   
   return (
     <div>
