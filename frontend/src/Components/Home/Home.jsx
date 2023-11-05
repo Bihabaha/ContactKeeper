@@ -4,6 +4,7 @@ import { useContactContext } from "../../hooks/useContactContext";
 import Form from "../Form/Form";
 import Contacts from "../Contacts/Contacts";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import Search from "../Search/Search";
 
 const Home = () => {
   const {contacts,dispatch}= useContactContext()
@@ -40,6 +41,7 @@ const Home = () => {
             <Form />
           </div> 
           <div className="col-lg-6">
+            <Search/>
             {" "}
             {contacts && contacts.map(
               (contact)=>(

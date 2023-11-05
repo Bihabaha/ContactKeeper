@@ -9,6 +9,7 @@ import Register from "./Components/Register/Register";
 import { useAuthContext } from "./hooks/useAuthContext";
 import Page from "./Components/Page/Page";
 import Contacts from "./Components/Contacts/Contacts";
+import Search from "./Components/Search/Search";
 
 const App = () => {
   const {user}=useAuthContext()
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/login" element={!user?<Login />:< Navigate to="/page" />}/>
         <Route path="/signup" element={!user?<Register />:<Navigate to="/page"/>}/>
         <Route path="/page" element={<Page/>}/>
+        <Route path="/search" element={<Search/>}/>
        
       </Routes>
     </div>
