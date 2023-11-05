@@ -30,8 +30,8 @@ const {user}=useAuthContext()
   };
   return (
     <div>
-      <div className="card w-75  m-auto mt-4 mb-2 rounded ">
-       { <div className="card-body d-flex ">
+      <div className="card w-75   m-auto mt-4 mb-2 rounded ">
+       { <div className="card-body ">
           <p className="mb-3 text-light   ">
             <span className="text-light  fs-5">
               <AiOutlineUser />
@@ -50,7 +50,7 @@ const {user}=useAuthContext()
             </span>{" "}
             {contact.address}
           </p>
-          <div className="icon-update-remove ">
+          <div className="icon-update-remove float-end ">
             <span className="text-success fs-3 ">
               <BiEdit />
             </span>

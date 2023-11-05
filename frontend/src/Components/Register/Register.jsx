@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSignup } from "../../hooks/useSignup";
+import "./Register.css"
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +18,7 @@ const {signup ,error,isLoading}=useSignup()
         <h3>Sign Up</h3>
         <div className="mb-3">
           <label className="form-label">
-            <span>Email</span>
+            <span className="">Email</span>
 
             <input
               type="email"

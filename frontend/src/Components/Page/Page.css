@@ -1,0 +1,18 @@
+.main-page{
+  
+     background-image: url("/public/pictures/contact-book 1.png");
+     background-repeat: no-repeat;
+     background-size: cover;
+     width: 100%;
+     height:695px;
+     position: fixed;
+
+}
+.main-page .heading-3{
+  
+text-align: center;
+margin-left: 300px;
+color: aliceblue;
+margin-top: 100px;
+
+}
