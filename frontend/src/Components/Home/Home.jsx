@@ -4,30 +4,35 @@ import { useContactContext } from "../../hooks/useContactContext";
 import Form from "../Form/Form";
 import Contacts from "../Contacts/Contacts";
 import { useAuthContext } from "../../hooks/useAuthContext";
-import Search from "../Search/Search";
+
 
 const Home = () => {
   const {contacts,dispatch}= useContactContext()
   const{user}=useAuthContext()
-
-  useEffect(() => {
-    const fetchContact = async () => {
-      const response = await fetch("/api/contacts",{
-        // sen authorization to gie access to end point
-        headers:{
-          'Authorization': `Bearer ${user.token}`
-        }
-      });
-      const json = await response.json();
-      if (response.ok) {
-       dispatch({type:"SET_CONTACTS",payload:json})
+  const fetchContact = async () => {
+      
+    const response = await fetch("/api/contacts",{
+      // sen authorization to gie access to end point
+      method: "GET",
+      headers:{
+        'Authorization': `Bearer ${user.token}`
       }
+    });
+    const json = await response.json();
+    console.log(json)
+    if (response.ok) {
+     dispatch({type:"SET_CONTACTS",payload:json})
+    }
+  }
+  useEffect(() => {
+    
       //if user logs in then he can fetch contacts
       if(user){
+        console.log(contacts)
 
         fetchContact();
       }
-    };
+    
   }, [dispatch,user]);
   
   return (

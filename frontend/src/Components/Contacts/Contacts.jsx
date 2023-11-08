@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { BiEdit } from "react-icons/bi";
 import { AiOutlineUser } from "react-icons/ai";
@@ -10,6 +10,29 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 const Contacts = ({ contact }) => {
   const { dispatch } = useContactContext();
 const {user}=useAuthContext()
+
+useEffect(() => {
+  const fetchContact = async () => {
+const response = await fetch("/api/contacts",{
+  // sen authorization to gie access to end point
+  headers:{
+    'Authorization': `Bearer ${user.token}`
+  }
+});
+const json = await response.json();
+console.log(json)
+if (response.ok) {
+ dispatch({type:"SET_CONTACTS",payload:json})
+}
+//if user logs in then he can fetch contacts
+if(user){
+  console.log(contacts)
+
+  fetchContact();
+}
+};
+}, [dispatch,user]);
+
   const handleClick = async () => {
     if(!user){
       return
