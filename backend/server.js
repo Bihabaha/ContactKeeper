@@ -1,15 +1,23 @@
+
+
+//cors
+const cors = require("cors")
+
 //dotnenv
 require("dotenv").config();
 //mongoose
 const mongoose =require("mongoose")
 //Express
 const express = require("express");
+
 //contact routes
 const contactRoute = require("./routes/contactRoute")
 //user routes
 const userRoute = require("./routes/user")
 //express app
 const app = express();
+//cors 
+app.use(cors())
 //Global middleware
 app.use(express.json())
 app.use((req, res, next) => {
