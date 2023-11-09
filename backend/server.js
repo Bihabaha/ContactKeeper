@@ -18,8 +18,8 @@ const userRoute = require("./routes/user")
 const app = express();
 //cors 
 app.use(cors({
-  origin: ["https://contact-keeper-api-five.vercel.app"], // Replace with your allowed origin(s)
-  methods: ["POST", "GET", "DELETE", "PATCH"],
+  origin: ["https://contact-keeper-api-nine.vercel.app"], // Replace with your allowed origin(s)
+  methods: ["POST", "GET"],
   credentials: true
 }));
 //Global middleware
