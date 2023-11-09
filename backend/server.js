@@ -28,7 +28,11 @@ app.use((req, res, next) => {
   console.log(req.path, req.method);
   next();
 });
+
 //routes
+app.get('/', (req, res) => {
+  res.json({ msg: "hello" });
+});
 app.use("/api/contacts",contactRoute);
 app.use("/api/user",userRoute);
 
