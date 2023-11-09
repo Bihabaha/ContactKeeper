@@ -17,7 +17,11 @@ const userRoute = require("./routes/user")
 //express app
 const app = express();
 //cors 
-app.use(cors())
+app.use(cors({
+  origin: ["http://example.com´"], // Replace with your allowed origin(s)
+  methods: ["POST", "GET", "DELETE", "PATCH"],
+  credentials: true
+}));
 //Global middleware
 app.use(express.json())
 app.use((req, res, next) => {
