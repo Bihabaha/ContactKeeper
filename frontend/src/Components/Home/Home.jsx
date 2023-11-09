@@ -46,7 +46,7 @@ const Home = () => {
             <Form />
           </div> 
           <div className="col-lg-6">
-            <Search/>
+           
             {" "}
             {contacts && contacts.map(
               (contact)=>(

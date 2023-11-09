@@ -14,6 +14,13 @@ export const contactReducer = (state, action) => {
       return {
         contacts: state.contacts.filter((c) => c._id !== action.payload._id),
       };
+      case 'UPDATE_CONTACT':
+      return {
+        ...state,
+        contacts: state.contacts.map(contact =>
+          contact._id === action.payload._id ? action.payload : contact
+        ),
+      };
     default:
       return state;
   }
