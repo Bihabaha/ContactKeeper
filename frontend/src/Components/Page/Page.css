@@ -11,8 +11,9 @@
 .main-page .heading-3{
   
 text-align: center;
-margin-left: 300px;
+margin-left: 60px;
 color: aliceblue;
 margin-top: 100px;
-
+padding: 0;
+white-space: nowrap;
 }

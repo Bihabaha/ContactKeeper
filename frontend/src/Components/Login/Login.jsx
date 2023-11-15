@@ -13,7 +13,7 @@ const Login = () => {
 
   }
   return (
-    <div className='container w-50 bg-dark mt-5 text-center text-light '>
+    <div className='container w-75 bg-dark mt-5 text-center text-light '>
       <form className='p-5' onSubmit={handleSubmit}>
       <h3 className='text-center'>Login</h3>
         <div className="mb-3">
