@@ -9,6 +9,7 @@ import Register from "./Components/Register/Register";
 import { useAuthContext } from "./hooks/useAuthContext";
 import Page from "./Components/Page/Page";
 import Contacts from "./Components/Contacts/Contacts";
+import ThemeSelector from "./Components/ThemeSelector/ThemeSelector";
 
 const App = () => {
   const { user } = useAuthContext();
@@ -18,6 +19,7 @@ const App = () => {
 "
     >
       <Navbar />
+      <ThemeSelector/>
       <Routes>
         <Route path="/" element={user ? <Home /> : <Navigate to="/page" />} />
         <Route path="/about" element={<About />} />

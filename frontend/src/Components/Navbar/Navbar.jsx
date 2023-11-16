@@ -4,10 +4,13 @@ import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { useLogout } from "../../hooks/useLogout";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import { useTheme } from "../../hooks/UseContextHook";
+
 useAuthContext;
 useLogout;
 useLogout;
 const Navbar = () => {
+  const {color}=useTheme()
   const { logout } = useLogout();
   const { user } = useAuthContext();
   const handleClick = () => {
@@ -16,7 +19,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg ">
+      <nav className="navbar navbar-expand-lg "  style={{background:color}}>
         <div className="container-fluid">
           <Link className="navbar-brand  text-light" to="/">
             <img className="mx-5  "  src="/public/pictures/logo.png" />
