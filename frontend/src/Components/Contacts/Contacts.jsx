@@ -7,7 +7,7 @@ import { MdEmail } from "react-icons/md";
 import "./Contacts.css";
 import { useContactContext } from "../../hooks/useContactContext";
 import { useAuthContext } from "../../hooks/useAuthContext";
-import Search from "../Search/Search";
+
 
 const Contacts = ({ contact }) => {
   const { dispatch } = useContactContext();
@@ -81,7 +81,6 @@ const Contacts = ({ contact }) => {
 
   return (
     <div>
-      <Search className="text-center"/>
       <div className="card w-75 m-auto mt-4 mb-2 rounded ">
         {isEditing ? (
           <div className="card-body">
@@ -152,7 +151,7 @@ const Contacts = ({ contact }) => {
               <span className="text-light fs-5">
                 <MdEmail />
               </span>{" "}
-              {contact.address}
+            {contact.address} 
             </p>
             <div className="icon-update-remove float-end ">
               <span className="text-success fs-3 " onClick={handleEdit}>

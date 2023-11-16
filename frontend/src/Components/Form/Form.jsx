@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useContactContext } from "../../hooks/useContactContext";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import Search from "../Search/Search";
 const Form = () => {
   const { dispatch } = useContactContext();
   const { user } = useAuthContext();
@@ -44,6 +45,7 @@ const Form = () => {
   };
   return (
     <div>
+    
       <form
         className="bg-dark w-75 p-5 text-center  m-auto"
         onSubmit={handleSubmit}

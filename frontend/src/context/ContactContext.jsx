@@ -20,14 +20,30 @@ export const contactReducer = (state, action) => {
         contacts: state.contacts.map(contact =>
           contact._id === action.payload._id ? action.payload : contact
         ),
+
       };
-    default:
-      return state;
+      case 'SEARCH_CONTACT':
+        return {
+          ...state,
+          searched: state.contacts.filter((contact) => {
+            const regex = new RegExp(`${action.payload}`, 'gi');
+            return contact.fullName.match(regex) || contact.address.match(regex);
+          }),
+        };
+      case 'CLEAR_SEARCH':
+        return {
+          ...state,
+          searched: null}
+      default:
+        return state;
+      
+   
   }
 };
 export const ContactContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(contactReducer, {
     contacts: null,
+    search:null
   });
 
   return (
