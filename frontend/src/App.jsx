@@ -10,13 +10,14 @@ import { useAuthContext } from "./hooks/useAuthContext";
 import Page from "./Components/Page/Page";
 import Contacts from "./Components/Contacts/Contacts";
 import ThemeSelector from "./Components/ThemeSelector/ThemeSelector";
+import { useTheme } from "./hooks/UseContextHook";
 
 const App = () => {
+  const {mode}=useTheme()
   const { user } = useAuthContext();
   return (
     <div
-      className="
-"
+      className= {`App ${mode}`}
     >
       <Navbar />
       <ThemeSelector/>

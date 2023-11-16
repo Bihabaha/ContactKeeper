@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useSignup } from "../../hooks/useSignup";
 import "./Register.css"
+import { useTheme } from "../../hooks/UseContextHook";
 const Register = () => {
+  const {color}=useTheme()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 const {signup ,error,isLoading}=useSignup()
@@ -13,7 +15,7 @@ const {signup ,error,isLoading}=useSignup()
   };
 
   return (
-    <div className="container w-75 bg-dark mt-5 text-center text-light ">
+    <div className="container w-75  mt-5 text-center text-light " style={{background:color}} >
       <form className="p-5" onSubmit={handleSubmit}>
         <h3>Sign Up</h3>
         <div className="mb-3">

@@ -7,9 +7,11 @@ import { MdEmail } from "react-icons/md";
 import "./Contacts.css";
 import { useContactContext } from "../../hooks/useContactContext";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import { useTheme } from "../../hooks/UseContextHook";
 
 
 const Contacts = ({ contact }) => {
+  const {mode}=useTheme()
   const { dispatch } = useContactContext();
   const { user } = useAuthContext();
   const [isEditing, setIsEditing] = useState(false);
@@ -85,7 +87,7 @@ const Contacts = ({ contact }) => {
         {isEditing ? (
           <div className="card-body">
             <div className="mb-3">
-              <label htmlFor="fullName" className="text-light mb-2 fs-5">
+              <label htmlFor="fullName" className="text-primary mb-2 fs-5">
                 <AiOutlineUser />
                 Full Name:
               </label>
@@ -100,7 +102,7 @@ const Contacts = ({ contact }) => {
             </div>
 
             <div className="mb-3">
-              <label htmlFor="phoneNumber" className="text-light mb-2  fs-5">
+              <label htmlFor="phoneNumber" className="text-primary mb-2  fs-5">
                 <BsFillPhoneFill />
                 Phone Number:
               </label>
@@ -115,7 +117,7 @@ const Contacts = ({ contact }) => {
             </div>
 
             <div className="mb-3">
-              <label htmlFor="address" className=" mb-2  text-light fs-5">
+              <label htmlFor="address" className=" mb-2  text-primary fs-5">
                 <MdEmail />
                 Address:
               </label>
@@ -134,21 +136,22 @@ const Contacts = ({ contact }) => {
             </button>
           </div>
         ) : (
-          <div className="card-body">
-            <p className="mb-3 text-light   ">
-              <span className="text-light  fs-5">
+          <div className={`card ${mode}`}>
+            <p className="mb-3 text-primary   ">
+              <span className="text-primary  fs-5">
                 <AiOutlineUser />
               </span>{" "}
               {contact.fullName}
             </p>
-            <p className="mb-3 text-light ">
-              <span className="text-light fs-5">
+            <p className="mb-3 text-primary ">
+              <span className="text-primary fs-5">
                 <BsFillPhoneFill />
               </span>{" "}
               {contact.phoneNumber}
             </p>
-            <p className="mb-3 text-light ">
-              <span className="text-light fs-5">
+            <p className="mb-3 text-primary
+             ">
+              <span className="text-primary fs-5">
                 <MdEmail />
               </span>{" "}
             {contact.address} 
