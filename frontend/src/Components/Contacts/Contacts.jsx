@@ -97,7 +97,7 @@ const Contacts = ({ contact }) => {
                 name="fullName"
                 value={editedContact.fullName}
                 onChange={handleChange}
-                className="form-control"
+                className="form-control text-success bg-dark"
               />
             </div>
 
@@ -112,7 +112,7 @@ const Contacts = ({ contact }) => {
                 name="phoneNumber"
                 value={editedContact.phoneNumber}
                 onChange={handleChange}
-                className="form-control"
+                className="form-control text-success bg-dark "
               />
             </div>
 
@@ -127,7 +127,7 @@ const Contacts = ({ contact }) => {
                 name="address"
                 value={editedContact.address}
                 onChange={handleChange}
-                className="form-control"
+                className="form-control text-success bg-dark"
               />
             </div>
 
