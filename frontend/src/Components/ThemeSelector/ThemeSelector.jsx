@@ -10,11 +10,11 @@ changeMode(mode==="dark"?"light":"dark")
     }
     console.log(mode)
   return (
-    <div className='themeSelector bg-secondary p-2'>
+    <div className='themeSelector  container  '>
        <div className="mode-toggle">
         <img src={modeIcon} alt="icon-dark-light"
         onClick={toggleMode} 
-        style={{filter:mode==="dark"?"invert(100%)":"invert(20%)"}}
+        style={{filter:mode==="dark"?"invert(100%)":"invert(10%)"}}
         />
 
        </div>

@@ -20,7 +20,7 @@ const App = () => {
       className= {`App ${mode}`}
     >
       <Navbar />
-      <ThemeSelector/>
+      <ThemeSelector />
       <Routes>
         <Route path="/" element={user ? <Home /> : <Navigate to="/page" />} />
         <Route path="/about" element={<About />} />
