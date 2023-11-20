@@ -25,6 +25,11 @@ export default defineConfig({
       "/api/user/contacts/:id": "http://localhost:4000/", // 
 
     },
+
+    
+    "scripts": {
+      "preview": "vite preview --port 8080"
+    }
   
   }
 })
