@@ -1,0 +1,24 @@
+/* Navbar*/
+.navbar {
+  background: #4e4b4b;
+}
+
+/*Links*/
+.nav-link {
+  color: rgb(241, 248, 244) !important;
+  font-size: 20px !important;
+  margin: auto;
+
+}
+.nav-link :hover {
+  color: rgb(9, 36, 111) !important ;
+}
+
+/*Athentication*/
+.authentication .login {
+  padding: 5px;
+}
+.authentication a {
+  text-decoration: none;
+  color: rgb(50, 50, 50);
+}
